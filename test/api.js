@@ -152,4 +152,33 @@ describe('Api Library', () => {
         })
     })
   })
+
+  describe('fetchWithJSON', () => {
+    it('should throw when no json is given', () => {
+      const request = () => api.fetchWithJSON('/')
+      expect(request).to.throw(/No JSON object/)
+    })
+
+    it('should add headers', () => {
+      simple.mock(Api.prototype, 'fetch')
+        .resolveWith(null)
+
+      api.fetchWithJSON('/', {})
+
+      expect(Api.prototype.fetch.lastCall.args[1].headers).to.deep.equal({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    })
+
+    it('should transform body to json string', () => {
+      simple.mock(Api.prototype, 'fetch')
+        .resolveWith(null)
+
+      const json = { foo: 'bar' }
+      api.fetchWithJSON('/', json)
+
+      expect(Api.prototype.fetch.lastCall.args[1].body).to.equal(JSON.stringify(json))
+    })
+  })
 })
