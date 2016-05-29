@@ -19,7 +19,7 @@ import Api from 'fetch-api'
 const api = new Api('http://example.com')
 
 // get from relative route
-api.get('/sample').then(({ response, data } => {
+api.get('/sample').then(({ response, data }) => {
 // response is the original fetch reponse
 // data is parsed and transformed response body, guessed by Content-Type header
 
