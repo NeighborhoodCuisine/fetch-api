@@ -142,8 +142,7 @@ describe('Api Library', () => {
         status: 200,
         body: 'get-request',
         headers: { 'Content-Type': 'text/plain' },
-        sendAsJson: false,
-        query: {}  // we always generate an empty query object
+        sendAsJson: false
       })
 
       api.get('/sample')
