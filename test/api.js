@@ -109,7 +109,8 @@ describe('Api Library', () => {
         method: 'get',
         auth: 321,
         foo: 'bar',
-        headers: {}
+        headers: {},
+        query: {}  // we always generate an empty query object
       })
     })
 
@@ -131,7 +132,8 @@ describe('Api Library', () => {
           'Content-Type': 'text',
           'Token': '123',
           'Foo': 'Bar'
-        }
+        },
+        query: {} // we always generate an empty query object
       })
     })
 
@@ -140,7 +142,8 @@ describe('Api Library', () => {
         status: 200,
         body: 'get-request',
         headers: { 'Content-Type': 'text/plain' },
-        sendAsJson: false
+        sendAsJson: false,
+        query: {}  // we always generate an empty query object
       })
 
       api.get('/sample')
@@ -167,7 +170,7 @@ describe('Api Library', () => {
 
       expect(Api.prototype.fetch.lastCall.args[1].headers).to.deep.equal({
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json; charset=UTF-8'
       })
     })
 
