@@ -1,6 +1,6 @@
 # fetch-api
 
-[![CircleCI](https://circleci.com/gh/NeighborhoodCuisine/fetch-api.svg?style=shield)](https://circleci.com/gh/NeighborhoodCuisine/fetch-api)
+[![Build Status](https://travis-ci.org/NeighborhoodCuisine/fetch-api.svg?branch=master)](https://travis-ci.org/NeighborhoodCuisine/fetch-api)
 
 A tiny fetch wrapper to write simple apis. Supports authentication tokens and runs on ES6 Promises.
 
